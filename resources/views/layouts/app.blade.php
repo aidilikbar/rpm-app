@@ -12,6 +12,7 @@
         <div class="container">
             <h1 class="h3">Remote Patient Monitoring</h1>
             <nav>
+                <a href="{{ route('homepage') }}" class="text-white me-3">Home</a>
                 <a href="{{ route('monitoring-data.index') }}" class="text-white me-3">Monitoring Data</a>
             </nav>
         </div>
