@@ -14,6 +14,7 @@
             <nav>
                 <a href="{{ route('homepage') }}" class="text-white me-3">Home</a>
                 <a href="{{ route('monitoring-data.index') }}" class="text-white me-3">Monitoring Data</a>
+                <a href="{{ route('patients.index') }}" class="text-white">Patients</a>
             </nav>
         </div>
     </header>
