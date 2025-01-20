@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\RpmMonitoringData;
 use App\Models\Patient;
+use Carbon\Carbon;
 
 class MonitoringDataController extends Controller
 {
@@ -35,9 +36,18 @@ class MonitoringDataController extends Controller
 
     public function edit($id)
     {
-        $monitoringData = RpmMonitoringData::findOrFail($id);
-        $patients = Patient::all();
-        return view('monitoring_data.edit', compact('monitoringData', 'patients'));
+        $data = RpmMonitoringData::findOrFail($id);
+        $data->recorded_at = Carbon::parse($data->recorded_at);
+        $patients = Patient::with('user')->get();
+
+        // Debugging logs
+        \Log::info('Data:', $data->toArray());
+        \Log::info('Patients:', $patients->toArray());
+
+        return view('monitoring_data.edit', [
+            'data' => $data,
+            'patients' => $patients,
+        ]);
     }
 
     public function update(Request $request, $id)

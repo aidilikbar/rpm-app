@@ -23,7 +23,7 @@ class Patient extends Model
      */
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     /**
@@ -38,6 +38,11 @@ class Patient extends Model
      * Relationship: A patient is assigned to one general practitioner.
      */
     public function generalPractitioner()
+    {
+        return $this->belongsTo(User::class, 'gp_id')->where('role', 'general_practitioner');
+    }
+
+    public function gp()
     {
         return $this->belongsTo(User::class, 'gp_id')->where('role', 'general_practitioner');
     }

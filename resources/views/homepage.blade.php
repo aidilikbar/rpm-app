@@ -1,36 +1,23 @@
 @extends('layouts.app')
 
-@section('title', 'Welcome to RPM App')
-
 @section('content')
-<div class="container text-center">
-    <h1 class="my-4">Welcome to the Remote Patient Monitoring System</h1>
-    <p class="lead">
-        Manage and monitor patient health data with ease.
-    </p>
+<div class="container mx-auto mt-6">
+    <h1 class="text-3xl font-bold mb-6">Welcome to Remote Patient Monitoring</h1>
+    <p class="mb-6">Monitor and manage patient data effectively and securely with our system.</p>
 
-    <div class="row mt-5">
-        <!-- Link to Monitoring Data -->
-        <div class="col-md-6">
-            <div class="card border-success">
-                <div class="card-body">
-                    <h5 class="card-title">Monitoring Data</h5>
-                    <p class="card-text">View and manage health data collected from patients.</p>
-                    <a href="{{ route('monitoring-data.index') }}" class="btn btn-primary">View Monitoring Data</a>
-                </div>
-            </div>
-        </div>
+    <!-- Feature Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Monitoring Data -->
+        <a href="{{ route('monitoring-data.index') }}" class="block bg-white shadow-md rounded-lg p-6 hover:bg-gray-50">
+            <h2 class="font-semibold text-xl text-blue-500">Monitoring Data</h2>
+            <p class="text-gray-600">View and manage real-time patient monitoring data collected from devices.</p>
+        </a>
 
-        <!-- Link to Profile or Other Features -->
-        <div class="col-md-6">
-            <div class="card border-success">
-                <div class="card-body">
-                    <h5 class="card-title">Manage Patients</h5>
-                    <p class="card-text">Link monitoring data to patients and manage their profiles.</p>
-                    <a href="{{ route('patients.index') }}" class="btn btn-primary">Manage Patients</a>
-                </div>
-            </div>
-        </div>
+        <!-- Manage Patients -->
+        <a href="{{ route('patients.index') }}" class="block bg-white shadow-md rounded-lg p-6 hover:bg-gray-50">
+            <h2 class="font-semibold text-xl text-blue-500">Manage Patients</h2>
+            <p class="text-gray-600">Add, update, and view patient records for effective care coordination.</p>
+        </a>
     </div>
 </div>
 @endsection

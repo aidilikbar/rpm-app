@@ -10,14 +10,16 @@ class PatientController extends Controller
 {
     public function index()
     {
-        $patients = Patient::with('generalPractitioner', 'user')->get();
+        $patients = Patient::with('gp', 'user')->get();
         return view('patients.index', compact('patients'));
     }
 
     public function create()
     {
-        $generalPractitioners = User::where('role', 'general_practitioner')->get();
-        return view('patients.create', compact('generalPractitioners'));
+        $users = User::where('role', 'patient')->get();
+        $gps = User::where('role', 'general_practitioner')->get(); // Fetch general practitioners
+    
+        return view('patients.create', compact('users', 'gps'));
     }
 
     public function store(Request $request)
@@ -38,8 +40,13 @@ class PatientController extends Controller
     public function edit($id)
     {
         $patient = Patient::findOrFail($id);
-        $generalPractitioners = User::where('role', 'general_practitioner')->get();
-        return view('patients.edit', compact('patient', 'generalPractitioners'));
+        //$generalPractitioners = User::where('role', 'general_practitioner')->get();
+        //return view('patients.edit', compact('patient', 'generalPractitioners'));
+
+        //$users = User::where('role', 'patient')->get();
+        $gps = User::where('role', 'general_practitioner')->get(); // Fetch general practitioners
+    
+        return view('patients.edit', compact('patient', 'gps'));
     }
 
     public function update(Request $request, $id)
