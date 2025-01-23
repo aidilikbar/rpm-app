@@ -10,6 +10,7 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
         <!-- Scripts -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
@@ -19,7 +20,12 @@
         <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 dark:bg-gray-900">
             <div>
                 <a href="/">
-                    <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+                <div class="flex flex-col justify-center items-center mb-6">
+                    <a href="{{ route('root') }}" class="flex items-center">
+                        <i class="fas fa-stethoscope fa-3x text-blue-500"></i>
+                    </a>
+                    <p class="mt-4 text-xl font-bold text-gray-800">Remote Patient Monitoring</p>
+                </div>
                 </a>
             </div>
 
