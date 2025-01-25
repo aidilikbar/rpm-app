@@ -1,0 +1,174 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "RPM App API Documentation",
+        "description": "This is the API documentation for the RPM application.",
+        "contact": {
+            "email": "support@rpm-app.com"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://127.0.0.1:8002",
+            "description": "RPM App API Server"
+        }
+    ],
+    "paths": {
+        "/api/monitoring-data": {
+            "get": {
+                "tags": [
+                    "MonitoringData"
+                ],
+                "summary": "Get list of monitoring data",
+                "description": "Returns list of monitoring data",
+                "operationId": "getMonitoringData",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "MonitoringData"
+                ],
+                "summary": "Create new monitoring data",
+                "description": "Create new monitoring data entry",
+                "operationId": "createMonitoringData",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "patient_id": {
+                                        "type": "integer"
+                                    },
+                                    "sensor_type": {
+                                        "type": "string"
+                                    },
+                                    "sensor_value": {
+                                        "type": "number"
+                                    },
+                                    "recorded_at": {
+                                        "type": "string",
+                                        "format": "date-time"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/api/monitoring-data/{id}": {
+            "get": {
+                "tags": [
+                    "MonitoringData"
+                ],
+                "summary": "Get monitoring data by ID",
+                "description": "Returns monitoring data based on ID",
+                "operationId": "getMonitoringDataById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Monitoring data ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "MonitoringData"
+                ],
+                "summary": "Update monitoring data",
+                "description": "Update monitoring data entry",
+                "operationId": "updateMonitoringData",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Monitoring data ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "sensor_type": {
+                                        "type": "string"
+                                    },
+                                    "sensor_value": {
+                                        "type": "number"
+                                    },
+                                    "recorded_at": {
+                                        "type": "string",
+                                        "format": "date-time"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "MonitoringData"
+                ],
+                "summary": "Delete monitoring data",
+                "description": "Deletes monitoring data based on ID",
+                "operationId": "deleteMonitoringData",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Monitoring data ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "MonitoringData",
+            "description": "API Endpoints for Managing Monitoring Data"
+        }
+    ]
+}

@@ -20,7 +20,7 @@
                     @foreach($monitoringData as $data)
                         <tr>
                             <td class="border border-gray-300 px-4 py-2">{{ $data->patient->user->name }}</td>
-                            <td class="border border-gray-300 px-4 py-2">{{ $data->sensor_type }}</td>
+                            <td class="border border-gray-300 px-4 py-2">{{ ucfirst(str_replace('_', ' ', $data->sensor_type)) }}</td>
                             <td class="border border-gray-300 px-4 py-2">{{ $data->sensor_value }}</td>
                             <td class="border border-gray-300 px-4 py-2">{{ $data->recorded_at }}</td>
                             <td class="border border-gray-300 px-4 py-2">

@@ -18,7 +18,11 @@
                 </div>
                 <div class="mb-4">
                     <label for="sensor_type" class="block text-gray-700 font-medium mb-2">Sensor Type</label>
-                    <input type="text" name="sensor_type" id="sensor_type" class="w-full border-gray-300 rounded-md">
+                    <select name="sensor_type" id="sensor_type" class="w-full border-gray-300 rounded-md shadow-sm">
+                        @foreach ($sensorTypes as $type)
+                            <option value="{{ $type }}">{{ ucfirst(str_replace('_', ' ', $type)) }}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="mb-4">
                     <label for="sensor_value" class="block text-gray-700 font-medium mb-2">Sensor Value</label>
