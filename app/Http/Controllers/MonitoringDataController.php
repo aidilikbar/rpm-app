@@ -86,7 +86,7 @@ class MonitoringDataController extends Controller
      */
     public function apiIndex()
     {
-        $data = MonitoringData::all();
+        $data = RpmMonitoringData::all();
         return response()->json($data);
     }
 
@@ -121,7 +121,7 @@ class MonitoringDataController extends Controller
             'recorded_at' => 'required|date',
         ]);
 
-        $monitoringData = MonitoringData::create($validated);
+        $monitoringData = RpmMonitoringData::create($validated);
         return response()->json($monitoringData, 201);
     }
 
@@ -147,7 +147,7 @@ class MonitoringDataController extends Controller
      */
     public function apiShow($id)
     {
-        $data = MonitoringData::findOrFail($id);
+        $data = RpmMonitoringData::findOrFail($id);
         return response()->json($data);
     }
 
@@ -187,7 +187,7 @@ class MonitoringDataController extends Controller
             'recorded_at' => 'required|date',
         ]);
 
-        $monitoringData = MonitoringData::findOrFail($id);
+        $monitoringData = RpmMonitoringData::findOrFail($id);
         $monitoringData->update($validated);
         return response()->json($monitoringData);
     }
@@ -214,7 +214,7 @@ class MonitoringDataController extends Controller
      */
     public function apiDestroy($id)
     {
-        $monitoringData = MonitoringData::findOrFail($id);
+        $monitoringData = RpmMonitoringData::findOrFail($id);
         $monitoringData->delete();
         return response()->json(null, 204);
     }
