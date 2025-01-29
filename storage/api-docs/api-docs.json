@@ -10,7 +10,7 @@
     },
     "servers": [
         {
-            "url": "http://127.0.0.1:8002",
+            "url": "https://rpm-app-g8pdk.ondigitalocean.app",
             "description": "RPM App API Server"
         }
     ],
